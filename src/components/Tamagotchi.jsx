@@ -12,6 +12,22 @@ class Tamagotchi extends React.Component{
     };
   }
 
+  componentDidMount() {
+    setInterval(() => {
+      let fullness = this.state.fullnessLvl;
+      let rested = this.state.restedLvl;
+      let entertained = this.state.entertainedLvl;
+      fullness -= 1;
+      rested -= 1;
+      entertained -= 1;
+      this.setState({
+        fullnessLvl:fullness,
+        restedLvl:rested,
+        entertainedLvl:entertained
+      });
+    },1000);
+  }
+
   render(){
     return (
       <div>
